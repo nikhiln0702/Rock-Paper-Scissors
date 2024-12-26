@@ -4,23 +4,32 @@ function getComputerChoice(){
         return Math.floor(Math.random() * max);
       }
     let num=getRandomInt(3);
-    let choice;
+    let computerChoice;
     if(num==0){
-        choice="rock";
+        computerChoice="rock";
     }
     else if(num==1){
-        choice="paper";
+        computerChoice="paper";
     }
     else{
-        choice="scissors";
+        computerChoice="scissors";
     }
-    console.log(choice);
-    return choice;
+    console.log(computerChoice);
+    return computerChoice;
 }
-getComputerChoice();
-function getHumanChoice(humanChoice){
+function getHumanChoice(){
+    let humanChoice=prompt("enter your computerChoice");
     humanChoice=humanChoice.toLowerCase();
-    if(humanChoice=="rock"){
-        
-    }
+    console.log(humanChoice);
+
 }
+
+function playRound(humanChoice,computerChoice){
+     
+}
+
+let humanScore=0;
+let computerScore=0;
+const humanSelection=getHumanChoice();
+const computerSelection=getComputerChoice();
+playRound(humanSelection,computerSelection);
