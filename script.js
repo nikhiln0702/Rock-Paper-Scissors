@@ -17,11 +17,12 @@ function getComputerChoice() {
     console.log(computerChoice);
     return computerChoice;
 }
-function getHumanChoice() {
-    let humanChoice = prompt("enter your Choice");
-    humanChoice = humanChoice.toLowerCase();
-    console.log(humanChoice);
-    return humanChoice;
+
+function buttonClickEvent(event){
+    const humanChoice = event.target.textContent.toLowerCase();
+    const computerChoice = getComputerChoice();
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerChoice}`);
 
 }
 let a;
@@ -43,13 +44,10 @@ function playGame() {
     }
     console.log("Score: "+humanScore);
     console.log("Computer Score: "+computerScore);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
 }
-for (let i = 0; i < 5; i++) {
-    playGame();
-}
+
+
 if (humanScore > computerScore) {
     console.log("You win the game !!!");
 
@@ -60,4 +58,8 @@ else if(humanScore<computerScore){
 else{
     console.log("Match tied");
 }
+const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+            button.addEventListener("click", buttonClickEvent);
+        });
 
