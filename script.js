@@ -17,17 +17,23 @@ function getComputerChoice() {
     console.log(computerChoice);
     return computerChoice;
 }
+let computerChoice;
 
 function buttonClickEvent(event) {
+    if(event.target.id=="reset"){
+        reset();
+    }
+    else{
     const humanChoice = event.target.textContent.toLowerCase();
-    const computerChoice = getComputerChoice();
+    computerChoice = getComputerChoice();
     console.log(`You chose: ${humanChoice}`);
     console.log(`Computer chose: ${computerChoice}`);
 
     playRound(humanChoice, computerChoice);
     if (rounds == 5) {
         result();
-        reset();
+        alert("Click on Play again");
+    }
     }
 }
 
@@ -47,30 +53,46 @@ function playRound(humanChoice, computerChoice) {
         console.log("Computer wins");
     }
     rounds++;
+    updateScore();
     console.log("Score: " + humanScore);
     console.log("Computer Score: " + computerScore);
     console.log(rounds);
 }
 
 function result() {
+    const div = document.createElement("div");
+    div.id = "result";
+
     if (humanScore > computerScore) {
-        console.log("You win the game !!!");
+        div.textContent="You win the game !!!. Click on Play Again";
 
     }
     else if (humanScore < computerScore) {
-        console.log("You lose :(. Better luck next time")
+        div.textContent="You lose :(. Better luck next time. Click on Play Again";
     }
     else {
-        console.log("Match tied");
+        div.textContent="Match tied. Click on Play Again";
     }
+    document.body.appendChild(div);
+}
+function reset() {
+    rounds = 0;
+    computerScore = 0;
+    humanScore = 0;
+    const resultDiv = document.getElementById("result");
+    if (resultDiv) {
+        resultDiv.remove(); 
+    }
+    updateScore();
+
+}
+function updateScore(){
+    const scoreDiv = document.getElementById("current-score");
+    scoreDiv.textContent = `Computer Choice: ${computerChoice}| Human: ${humanScore} | Computer: ${computerScore} | Rounds Played: ${rounds}`;
 }
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", buttonClickEvent);
 });
-function reset() {
-    rounds = 0;
-    computerScore = 0;
-    humanScore = 0;
-}
+
