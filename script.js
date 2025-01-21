@@ -32,7 +32,6 @@ function buttonClickEvent(event) {
     playRound(humanChoice, computerChoice);
     if (rounds == 5) {
         result();
-        alert("Click on Play again");
     }
     }
 }
@@ -94,5 +93,8 @@ function updateScore(){
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", buttonClickEvent);
+});
+document.querySelectorAll(".choice").forEach((img) => {
+    img.addEventListener("click", buttonClickEvent);
 });
 

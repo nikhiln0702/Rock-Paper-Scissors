@@ -1,6 +1,7 @@
 body{
     display: flex;
     flex-direction: column;
+    background-color: wheat
 }
 .container1,.container2,.container3,.container4{
     display: flex;
@@ -10,4 +11,9 @@ body{
 }
 button{
     margin: 0px 30px;
+}
+.choice{
+    width: 8vw;
+    height: 10vh;
+    padding: 2vw;
 }
