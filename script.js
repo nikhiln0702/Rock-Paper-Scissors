@@ -24,7 +24,7 @@ function buttonClickEvent(event) {
         reset();
     }
     else{
-    const humanChoice = event.target.textContent.toLowerCase();
+    const humanChoice = event.target.alt.toLowerCase();
     computerChoice = getComputerChoice();
     console.log(`You chose: ${humanChoice}`);
     console.log(`Computer chose: ${computerChoice}`);
@@ -59,29 +59,32 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function result() {
-    const div = document.createElement("div");
-    div.id = "result";
+    const popup = document.querySelector(".popup");
+    const overlay = document.querySelector(".popup-overlay");
+    const resultMessage = document.getElementById("resultMessage");
 
     if (humanScore > computerScore) {
-        div.textContent="You win the game !!!. Click on Play Again";
+        resultMessage.textContent="You win the game !!!.";
 
     }
     else if (humanScore < computerScore) {
-        div.textContent="You lose :(. Better luck next time. Click on Play Again";
+       resultMessage.textContent="You lose :(. Better luck next time.";
     }
     else {
-        div.textContent="Match tied. Click on Play Again";
+        resultMessage.textContent="Match tied.";
     }
-    document.body.appendChild(div);
+     popup.style.display = "block";
+     overlay.style.display = "block";
+
+    document.getElementById("reset").addEventListener("click", reset);
+    
 }
 function reset() {
+    document.querySelector(".popup").style.display = "none";
+    document.querySelector(".popup-overlay").style.display = "none";
     rounds = 0;
     computerScore = 0;
     humanScore = 0;
-    const resultDiv = document.getElementById("result");
-    if (resultDiv) {
-        resultDiv.remove(); 
-    }
     updateScore();
 
 }
