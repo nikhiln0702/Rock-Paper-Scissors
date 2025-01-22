@@ -42,3 +42,11 @@ button{
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+.close-btn{
+    position: absolute;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    top: 5px;
+    right: 0;
+}

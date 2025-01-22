@@ -23,6 +23,9 @@ function buttonClickEvent(event) {
     if(event.target.id=="reset"){
         reset();
     }
+    else if(event.target.className=="close-btn"){
+        removePopup();
+    }
     else{
     const humanChoice = event.target.alt.toLowerCase();
     computerChoice = getComputerChoice();
@@ -53,8 +56,6 @@ function playRound(humanChoice, computerChoice) {
     }
     rounds++;
     updateScore();
-    console.log("Score: " + humanScore);
-    console.log("Computer Score: " + computerScore);
     console.log(rounds);
 }
 
@@ -64,14 +65,14 @@ function result() {
     const resultMessage = document.getElementById("resultMessage");
 
     if (humanScore > computerScore) {
-        resultMessage.textContent="You win the game !!!.";
+        resultMessage.textContent="You win the game !!!";
 
     }
     else if (humanScore < computerScore) {
-       resultMessage.textContent="You lose :(. Better luck next time.";
+       resultMessage.textContent="You lose :(. Better luck next time";
     }
     else {
-        resultMessage.textContent="Match tied.";
+        resultMessage.textContent="Game tied";
     }
      popup.style.display = "block";
      overlay.style.display = "block";
@@ -79,10 +80,13 @@ function result() {
     document.getElementById("reset").addEventListener("click", reset);
     
 }
-function reset() {
+function removePopup(){
     document.querySelector(".popup").style.display = "none";
     document.querySelector(".popup-overlay").style.display = "none";
-    rounds = 0;
+}
+function reset() {
+    removePopup();
+    rounds=0;
     computerScore = 0;
     humanScore = 0;
     updateScore();
