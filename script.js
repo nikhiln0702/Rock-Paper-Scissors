@@ -43,6 +43,26 @@ let humanScore = 0;
 let computerScore = 0;
 let rounds = 0;
 function playRound(humanChoice, computerChoice) {
+    const imagecontainer = document.querySelector(".container4");
+    const div=document.createElement("div");
+    div.id="imageHolder"
+    imagecontainer.innerHTML = "";
+    const playerimage=document.createElement("img");
+    playerimage.src=`${humanChoice}.png`;
+    playerimage.alt=humanChoice;
+    playerimage.id="choiceImage";
+    div.appendChild(playerimage);
+    imagecontainer.appendChild(div);
+
+    
+    const computerimage=document.createElement("img");
+    computerimage.src=`${computerChoice}.png`;
+    computerimage.alt=humanChoice;
+    computerimage.id="choiceImage";
+    div.appendChild(computerimage);
+    imagecontainer.appendChild(div);
+
+    
     if (humanChoice == computerChoice) {
         console.log("It's a tie!!!");
     }
@@ -84,8 +104,13 @@ function removePopup(){
     document.querySelector(".popup").style.display = "none";
     document.querySelector(".popup-overlay").style.display = "none";
 }
+function removeChoiceImages(){
+    const element=document.querySelector("#imageHolder")
+    element.remove();
+}
 function reset() {
     removePopup();
+    removeChoiceImages()
     rounds=0;
     computerScore = 0;
     humanScore = 0;

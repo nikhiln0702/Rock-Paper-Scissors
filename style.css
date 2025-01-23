@@ -50,3 +50,8 @@ button{
     top: 5px;
     right: 0;
 }
+#choiceImage{
+    width: 10vw;
+    margin:0 5vw;
+    object-fit: cover;
+}
