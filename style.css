@@ -1,23 +1,52 @@
 body{
     display: flex;
     flex-direction: column;
-    background-color: wheat
+    background: linear-gradient(to bottom right, #8FBC8F, #A9A9A9); /* Light blue shades */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 .container1,.container2,.container3,.container4{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 30px 0;
+    flex-direction: row;
+    gap: 3vw;
+}
+.container3{
+    flex-direction: column;
+}
+.choice:hover {
+    background-color: #B0E57C;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 button{
     margin: 0px 30px;
     cursor: pointer;
+    background-color: #ff7f50;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+    background-color: #ff5722;
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 .choice{
     width: 8vw;
     height: 10vh;
     padding: 2vw;
     cursor: pointer;
+    border: 2px solid #8FBC8F;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
 }
 .popup {
     display: none; /* Hidden by default */
@@ -26,11 +55,13 @@ button{
     left: 40%;
     padding: 20px;
     width:20vw;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
     text-align: center;
     z-index: 1000;
+    transition: opacity 0.3s ease;
+
 }
 .popup-overlay{
     display: none; /* Hidden by default */
@@ -46,12 +77,28 @@ button{
     position: absolute;
     background-color: red;
     color: white;
-    cursor: pointer;
-    top: 5px;
+    border: none;
+    font-size: 1rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    top: 10px;
     right: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.close-btn:hover {
+    background-color: darkred;
 }
 #choiceImage{
     width: 10vw;
+    height: auto;
     margin:0 5vw;
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+a{
+    font-weight: bold;
+    margin-bottom:10vh ;
+    
 }

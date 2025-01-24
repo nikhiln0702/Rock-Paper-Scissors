@@ -20,22 +20,22 @@ function getComputerChoice() {
 let computerChoice;
 
 function buttonClickEvent(event) {
-    if(event.target.id=="reset"){
+    if (event.target.id == "reset") {
         reset();
     }
-    else if(event.target.className=="close-btn"){
+    else if (event.target.className == "close-btn") {
         removePopup();
     }
-    else{
-    const humanChoice = event.target.alt.toLowerCase();
-    computerChoice = getComputerChoice();
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerChoice}`);
+    else {
+        const humanChoice = event.target.alt.toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(`You chose: ${humanChoice}`);
+        console.log(`Computer chose: ${computerChoice}`);
 
-    playRound(humanChoice, computerChoice);
-    if (rounds == 5) {
-        result();
-    }
+        playRound(humanChoice, computerChoice);
+        if (rounds == 5) {
+            result();
+        }
     }
 }
 
@@ -44,25 +44,28 @@ let computerScore = 0;
 let rounds = 0;
 function playRound(humanChoice, computerChoice) {
     const imagecontainer = document.querySelector(".container4");
-    const div=document.createElement("div");
-    div.id="imageHolder"
+    const div = document.createElement("div");
+    div.id = "imageHolder"
     imagecontainer.innerHTML = "";
-    const playerimage=document.createElement("img");
-    playerimage.src=`${humanChoice}.png`;
-    playerimage.alt=humanChoice;
-    playerimage.id="choiceImage";
+    const playerimage = document.createElement("img");
+    playerimage.src = `images/${humanChoice}.png`;
+    playerimage.alt = humanChoice;
+    playerimage.id = "choiceImage";
     div.appendChild(playerimage);
     imagecontainer.appendChild(div);
 
-    
-    const computerimage=document.createElement("img");
-    computerimage.src=`${computerChoice}.png`;
-    computerimage.alt=humanChoice;
-    computerimage.id="choiceImage";
+    const vstext = document.createElement("a");
+    vstext.textContent = "VS";
+    div.appendChild(vstext);
+
+    const computerimage = document.createElement("img");
+    computerimage.src = `images/${computerChoice}.png`;
+    computerimage.alt = humanChoice;
+    computerimage.id = "choiceImage";
     div.appendChild(computerimage);
     imagecontainer.appendChild(div);
 
-    
+
     if (humanChoice == computerChoice) {
         console.log("It's a tie!!!");
     }
@@ -85,41 +88,41 @@ function result() {
     const resultMessage = document.getElementById("resultMessage");
 
     if (humanScore > computerScore) {
-        resultMessage.textContent="You win the game !!!";
+        resultMessage.textContent = "You win the game !!!";
 
     }
     else if (humanScore < computerScore) {
-       resultMessage.textContent="You lose :(. Better luck next time";
+        resultMessage.textContent = "You lose :(. Better luck next time";
     }
     else {
-        resultMessage.textContent="Game tied";
+        resultMessage.textContent = "Game tied";
     }
-     popup.style.display = "block";
-     overlay.style.display = "block";
+    popup.style.display = "block";
+    overlay.style.display = "block";
 
     document.getElementById("reset").addEventListener("click", reset);
-    
+
 }
-function removePopup(){
+function removePopup() {
     document.querySelector(".popup").style.display = "none";
     document.querySelector(".popup-overlay").style.display = "none";
 }
-function removeChoiceImages(){
-    const element=document.querySelector("#imageHolder")
+function removeChoiceImages() {
+    const element = document.querySelector("#imageHolder")
     element.remove();
 }
 function reset() {
     removePopup();
     removeChoiceImages()
-    rounds=0;
+    rounds = 0;
     computerScore = 0;
     humanScore = 0;
     updateScore();
 
 }
-function updateScore(){
+function updateScore() {
     const scoreDiv = document.getElementById("current-score");
-    scoreDiv.textContent = `Computer Choice: ${computerChoice}| Human: ${humanScore} | Computer: ${computerScore} | Rounds Played: ${rounds}`;
+    scoreDiv.textContent = `Human: ${humanScore} | Computer: ${computerScore} | Rounds Played: ${rounds}`;
 }
 
 const buttons = document.querySelectorAll("button");
