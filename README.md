@@ -9,6 +9,8 @@ The **Rock Paper Scissors Game** is a classic game where a player competes again
 
 This web-based game was built using **HTML**, **CSS**, and **JavaScript**. It offers a simple yet engaging interface, tracks scores, and allows for multiple rounds of play.
 
+https://nikhiln0702.github.io/Rock-Paper-Scissors/
+
 ## Features
 
 - **Interactive Gameplay:** Click on images of Rock, Paper, or Scissors to make a choice.
@@ -31,3 +33,5 @@ This web-based game was built using **HTML**, **CSS**, and **JavaScript**. It of
 - The game continues until either the player or the computer reaches a score of 5.
 - Once the game ends, a popup displays the result.
 - The player can reset the game to start fresh.
+
+     
