@@ -33,7 +33,7 @@ function buttonClickEvent(event) {
         console.log(`Computer chose: ${computerChoice}`);
 
         playRound(humanChoice, computerChoice);
-        if (rounds == 5) {
+        if ((humanScore == 5)||(computerScore==5)) {
             result();
         }
     }
