@@ -122,7 +122,7 @@ function reset() {
 }
 function updateScore() {
     const scoreDiv = document.getElementById("current-score");
-    scoreDiv.textContent = `Human: ${humanScore} | Computer: ${computerScore} | Rounds Played: ${rounds}`;
+    scoreDiv.textContent = `Your Score: ${humanScore} | Computer: ${computerScore} | Rounds Played: ${rounds}`;
 }
 
 const buttons = document.querySelectorAll("button");
